@@ -43,7 +43,7 @@ int main(){
 
     printf("\n\n\n IMPREESION A TRAVES DEL VECTOR DE PUNTEROS\n\n") ;
     for ( I = 0 ; I < N ; I++ )
-         printf("\n\n\t\t %-12s %8c %10d ", (*(VP+I))->NOM, (*(VP+I))->SEX, (*(VP+I)))->NOTA );
+         printf("\n\n\t\t %-12s %8c %10d ", (*(VP+I)->NOM, (*(VP+I))->SEX, (*(VP+I)))->NOTA );
 
 
 
