@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <conio.h>
 
-struct ALUMNO {;
+struct ALUMNO {
 
     char NOM[20] ;
     char SEX ;
