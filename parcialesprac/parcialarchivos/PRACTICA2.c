@@ -33,10 +33,6 @@ int main( )
         struct ALUMNO Alum ;
         struct EXAMEN Exa  ;
 
-        int RINDIERON = 0 ;
-        int APROBARON = 0 ;
-        char ING[20] = "INGENIERIA" ;
-
         if(!( FA = fopen("INGRESO.dat", "rb") )){
             printf("\n\nERROR  EN LA APERTURA DEL ARCHIVO INGRESO");
             exit(1);
@@ -69,33 +65,9 @@ int main( )
         getchar();
         fseek(FE, 0L *sizeof(Exa), SEEK_END);
         printf("\n\nEL PESO EN BYTES DEL ARCHIVO INGRESO ES DE : %d", ftell(FE));
-        printf("\n\nLA CANTIDAD DE ALUMNOS QUE RINDIERON EXAMENES ES DE: %d\n\n", ftell(FE)/sizeof(Exa));
-        rewind(FA);
-        rewind(FE);
-
-
-        fread(&Alum, sizeof(Alum), 1, FA);
-        while( !feof(FA) ){
-            rewind(FE);
-            if(strcmpi(Alum.CARRERA, ING) == 0){
-                fread(&Exa, sizeof(Exa), 1, FE);
-                while( !feof(FE) ){
-                    if(Alum.LEG == Exa.LEG){
-                        RINDIERON++;
-                        if( Exa.NOTA >= 6 ){
-                            APROBARON++;
-                        }
-                    }
-                    fread(&Exa, sizeof(Exa), 1 , FE);
-                }
-
-            }
-            fread(&Alum, sizeof(Alum), 1 , FA);
-        }
-
+        printf("\n\nLA CANTIDAD DE ALUMNOS QUE RINDIERON EXAMENES ES DE: %d", ftell(FE)/sizeof(Exa));
         fclose(FE);
         fclose(FA);
-         printf("\n\n\tRINDIERON EL EXAMEN %d, APROBARON EL EXAMEN %d", RINDIERON, APROBARON);
         return 0 ;
 }
 
